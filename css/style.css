@@ -1,0 +1,693 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --main-color:rgb(122,61,138);
+    --links-color:rgb(51,51,51);
+    --heading-color:rgb(99,114,121);
+    --text-color:rgb(175,175,175);
+    --bg-color-nav: #E5F4FB;
+}
+a{
+    text-decoration: none;
+}
+ul li{
+    list-style: none;
+}
+button{
+    outline: none;
+}
+button, label, i{
+    cursor: pointer;
+}
+p{
+    font-size: 1.2rem;
+    color: var(--text-color);
+    line-height: 1.3;
+}
+h1, h3 , h4{
+    color: var(--heading-color);
+    line-height: 1.3;
+}
+span{
+    color: var(--main-color);
+}
+/* img{
+    width: 100%;
+} */
+input{
+    display: none;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sec2, .sec3{
+    margin: 1.5rem 0rem;
+    padding: 0rem .5rem;
+}
+/******************************* start header (navbar) **********************************/
+.head .nav-bar{
+    width: 100%;
+    background-color: var(--bg-color-nav);
+    padding: .3rem 8rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+.head .nav-bar .nav-logo,
+.head .nav-bar .nav-logo .nav-list,
+.head .nav-bar .nav-button{
+    display: flex;
+    align-items: center;
+}
+.head .nav-bar .nav-logo img{
+    width: 13%;
+}
+.head .nav-bar .nav-logo .nav-list  li a{
+    margin-left: .6rem;
+    color: var(--links-color);
+    font-size: 1.1rem;
+    padding: .5rem;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    position: relative;
+}
+.head .nav-bar .nav-logo .nav-list  li a.active{
+    color: var(--main-color);
+}
+.head .nav-bar .nav-logo .nav-list  li a::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--main-color);
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+}
+.head .nav-bar .nav-logo .nav-list  li a:hover,
+.head .nav-bar .nav-logo .nav-list  li a:hover::after{
+    color: var(--main-color);
+    width: 100%;
+}
+.head .nav-bar .nav-button .icon div{
+    width: 25px;
+    height: 3px;
+    background-color: var(--heading-color);
+    margin-top: .3rem;
+    margin-right: .7rem;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    display: none;
+}
+.head .nav-bar .nav-button button{
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: var(--links-color);
+    font-size: 1.1rem;
+    padding: .5rem .9rem;
+    border-radius: .2rem;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+    -ms-border-radius: .2rem;
+    -o-border-radius: .2rem;
+}
+label:hover .one{
+    transform: rotate(45deg) translate(7px,7px);
+    -webkit-transform: rotate(45deg) translate(7px,7px);
+    -moz-transform: rotate(45deg) translate(7px,7px);
+    -ms-transform: rotate(45deg) translate(7px,7px);
+    -o-transform: rotate(45deg) translate(7px,7px);
+    height: .2rem;
+}
+   label:hover .two{
+      opacity: 0;
+  }
+  label:hover .three{
+    transform: rotate(-45deg) translate(5px,-3.5px);
+    -webkit-transform: rotate(-45deg) translate(5px,-3.5px);
+    -moz-transform: rotate(-45deg) translate(5px,-3.5px);
+    -ms-transform: rotate(-45deg) translate(5px,-3.5px);
+    -o-transform: rotate(-45deg) translate(5px,-3.5px);
+    height: .2rem;
+}
+/********************* media query navbar ********************/
+@media screen and  (max-width: 990px){
+    .head .nav-bar .nav-logo img{
+        width: 18%;
+    }
+}
+@media screen and  (max-width: 768px){
+    .head .nav-bar{
+        padding: .3rem 5rem;
+    }
+    .head .nav-bar .nav-logo img{
+        width: 23%;
+    }
+    .head .nav-bar .nav-button .icon div{
+        display: block;
+    }
+    .head .nav-bar .nav-logo .nav-list{
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        text-align: center;
+        overflow: hidden;
+        background-color: rgb(194,231,247);
+        transition: all .4s;
+        -webkit-transition: all .4s;
+        -moz-transition: all .4s;
+        -ms-transition: all .4s;
+        -o-transition: all .4s;
+    }
+    .head .nav-bar .nav-logo .nav-list li{
+        padding: .8rem;
+        background-color: rgb(242,229,241);
+        margin: .5rem 0rem;
+        display:block;
+        width: 100%;
+    }
+    .head .nav-bar .nav-logo .nav-list  li a:hover::after{
+        display: none;
+    }
+    #bar:checked+.nav-list{
+        height: 80vh;
+    }
+    .head .nav-bar .nav-button button{
+        font-size: .8rem;
+        font-weight: bold;
+    }
+
+}
+@media screen and  (max-width: 578px){
+    .head .nav-bar{
+        padding: .3rem 1.5rem;
+    }
+    .head .nav-bar .nav-logo img{
+        width: 27%;
+    }
+}
+@media screen and  (max-width: 430px){
+    .head .nav-bar .nav-logo img{
+        width: 32%;
+    }
+
+}
+/******************************* end header (navbar) **********************************/
+/******************************* start header (landing) **********************************/
+.head .land{
+    width: 100%;
+    height: 100vh;
+    /* padding: .8rem; */
+    background-image: url("../images/blue_bg.png");
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.head .land .content{
+    width: 85%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.head .land .content .head-left,
+.head .land .content .head-right{
+    width: 46%;
+}
+.head .land .content .head-left h1{
+    font-size: 2.5rem;
+}
+.head .land .content .head-left span{
+    text-decoration: underline;
+}
+.head .land .content .head-right{
+    position: relative;
+}
+.head .land .content .head-right .first-img{
+    width: 100%;
+}
+.head .land .content .head-right .second-img{
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    right: 25%;
+    bottom: 15%;
+}
+.head .land .content .head-right .last-img{
+    width: 60%;
+    position: absolute;
+    left: 15%;
+    top: 65%;
+    z-index: 2;
+}
+.head .wave{
+    width: 100%;
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+}
+/************* media query landing **************/
+@media (max-width: 1200px){
+    .head .land .content .head-left h1{
+        font-size: 1.8rem;
+    }
+    .head .land .content .head-left p{
+      font-size: 1.1rem;
+    }
+}
+@media screen and  (max-width: 768px){
+    .head .land .content .head-left h1{
+        font-size: 1.5rem;
+    }
+    .head .land .content .head-left p{
+      font-size: .9rem;
+      font-size: bold;
+    }
+}
+@media screen and  (max-width: 558px){
+    .head .land .content{
+        flex-wrap: wrap;
+        text-align: center;
+        padding-top: .9rem;
+    }
+    .head .land .content .head-left{
+        width: 100%;
+    }
+    .head .land .content .head-right{
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+/******************************* end header (landing) **********************************/
+/******************************* start section2 **********************************/
+.sec2 .sec2-content{
+    position: relative;
+    height: 120vh;
+    text-align: center;
+    padding: 0rem 1rem;
+}
+.sec2  .sec2-content .sec2-f-img{
+    width: 70%;
+    height: 60%;
+    position: absolute;
+     left: 16%;
+     top: 6%;    
+}
+.sec2 .sec2-content .sec2-img1,
+.sec2 .sec2-content .sec2-img2,
+.sec2 .sec2-content .sec2-img3 ,
+.sec2 .sec2-content .sec2-img4
+{
+    width: 25%;
+}
+.sec2  .sec2-content .sec2-img1 .sec2-secondimg,
+.sec2  .sec2-content .sec2-img2 .sec2-secondimg ,
+.sec2  .sec2-content .sec2-img3 .sec2-secondimg{
+    width: 60%;
+}
+.sec2  .sec2-content .sec2-img4 .sec2-lastimg {
+    width: 100%;
+}
+.sec2  .sec2-content .sec2-img1{
+    position: absolute;
+   left: 5%;
+   top: 13%;
+}
+.sec2  .sec2-content .sec2-img2{
+    position: absolute;
+    top: 28%;
+    right: 38%;
+}
+.sec2  .sec2-content .sec2-img3{
+    position: absolute;
+    right: 15%;
+    top: 63%;
+ }
+.sec2 .sec2-content .sec2-img1,
+.sec2 .sec2-content .sec2-img2,
+.sec2  .sec2-content .sec2-img3{
+    text-align: center;
+}
+.sec2  .sec2-content .sec2-img4{
+    width: 25%;
+    position: absolute;
+    left: 5%;
+    top: 62%;
+}
+.sec2  .sec2-content .sec2-img4 .img4-item{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.sec2  .sec2-content .sec2-img4 .img4-item h3,
+.sec2  .sec2-content .sec2-img4 .img4-item p{
+    color: #fff;
+}
+.sec2  .sec2-content .sec2-img4 .img4-item h3{
+    font-size: 2rem;
+}
+.sec2  .sec2-content .sec2-img1 h3 ,
+.sec2  .sec2-content .sec2-img2 h3 , 
+.sec2  .sec2-content .sec2-img3 h3 {
+    color: rgb(101,97,125);
+    font-size: 1.4rem;
+    margin: .3rem 0rem;
+}
+/****************** media query section2 ********************/
+@media only screen and (max-width:990px){
+    .sec2  .sec2-content .sec2-f-img{
+        height: 40%;
+    }
+    .sec2  .sec2-content .sec2-img2{
+        top: 23%;
+    }
+    .sec2  .sec2-content .sec2-img3{
+        top: 45%;
+    }
+    p{
+        font-size: 1.1rem;
+    }
+    .sec2  .sec2-content .sec2-img4 .img4-item h3{
+        font-size: 1.5rem;
+    }
+    .sec2  .sec2-content .sec2-img1 h3 ,
+    .sec2  .sec2-content .sec2-img2 h3 , 
+    .sec2  .sec2-content .sec2-img3 h3 {
+        font-size: 1.2rem;
+    }
+}
+@media screen and  (max-width: 768px){
+    p{
+        font-size: .9rem;
+    }
+    .sec2  .sec2-content .sec2-img4 .img4-item h3{
+        font-size: 1rem;
+    }
+    .sec2  .sec2-content .sec2-img1 h3 ,
+    .sec2  .sec2-content .sec2-img2 h3 , 
+    .sec2  .sec2-content .sec2-img3 h3 {
+        font-size: 1rem;
+    }
+    .sec2  .sec2-content .sec2-img4 {
+        top: 52%;
+    }
+}
+@media screen and  (max-width: 578px){
+    p{
+        font-size: .6rem;
+    }
+    .sec2  .sec2-content .sec2-img4 .img4-item h3{
+        font-size: .9rem;
+    }
+    .sec2  .sec2-content .sec2-img1 h3 ,
+    .sec2  .sec2-content .sec2-img2 h3 , 
+    .sec2  .sec2-content .sec2-img3 h3 {
+        font-size: .8rem;
+    }
+    .sec2  .sec2-content .sec2-img4{
+        top: 49%;
+        width: 35%;
+    }
+    
+}
+@media screen and  (max-width: 402px){
+    .sec2  .sec2-content .sec2-img1 h3 ,
+    .sec2  .sec2-content .sec2-img2 h3 , 
+    .sec2  .sec2-content .sec2-img3 h3 {
+        font-size: .6rem;
+    }
+}
+/******************************* end section2 **********************************/
+/******************************* start section3 **********************************/
+.sec3 .content{
+    text-align: center;
+    justify-content: center;
+}
+.sec3 .content .sec3-item{
+    position: relative;
+}
+.sec3 .content .sec3-item img{
+    width: 90%;
+}
+.sec3 .content .sec3-item h4{
+    font-size: 1.5rem;
+}
+.sec3 .content .sec3-item p{
+    width: 60%;
+    margin: auto;
+    padding: .5rem;   
+}
+.sec3 .content .sec3-item::after,
+.sec3 .content .sec3-item::before{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+.sec3 .content .sec3-item::after{
+    content: '\f105';
+    right: 5%;
+}
+.sec3 .content .sec3-item::before{
+    content: '\f104';
+    left: 5%;
+}
+/********************* media query section 3 **********************/
+@media screen and  (max-width:1100px){
+    .sec3 .content img{
+        width: 20%;
+    }
+}
+@media screen and (max-width:950px){
+    .sec3 .content .sec3-item img{
+        width: 75%;
+    }
+    .sec3 .content .sec3-item h4{
+        font-size: 1.4rem;
+    }
+    .sec3 .content .sec3-item p{
+        font-size: .9rem;
+    }
+}
+@media screen and  (max-width: 578px){
+    .sec3 .content .sec3-item h4{
+        font-size: .8rem;
+    }
+}
+/******************************* end section3 **********************************/
+/************************ start footer *********************************/
+.foot{
+    margin-top: 1.7rem;
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+    /* background-color: yellow; */
+}
+.foot .footimg1{
+    width: 110%;
+     position: absolute;
+     left:-3%;
+     top: 8%; 
+}
+.foot .footimg2{
+    width: 40%;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+}
+.foot .foot-left{
+    position: absolute;
+    left: 7%;
+    bottom: 0;
+    padding: 1rem .3rem ;
+}
+.foot .foot-left .foot-app ,
+.foot .foot-left .foot-icon ,
+ .foot .foot-left ul ,
+ .foot .foot-left .foot-app .left-app, 
+ .foot .foot-left .foot-app .right-app{
+    display: flex;
+    align-items: center;
+}
+.foot .foot-left .foot-app .left-app, 
+.foot .foot-left .foot-app .right-app{
+    margin:0rem .8rem .8rem 0rem ;
+    background-color: #fff;
+    padding: .8rem;
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    -ms-border-radius: .5rem;
+    -o-border-radius: .5rem;
+}
+.foot .foot-left .foot-app .left-app .app-text,
+.foot .foot-left .foot-app .right-app .app-text
+{
+margin-left: .4rem;
+}
+.foot .foot-left .foot-app .left-app .app-text span,
+.foot .foot-left .foot-app .right-app .app-text span{
+  font-size: .9rem;
+}
+.foot .foot-left .foot-app .left-app .app-text p,
+.foot .foot-left .foot-app .right-app .app-text p{
+ color: rgb(123,94,174);
+}
+.foot .foot-left .foot-icon i, 
+.foot .foot-left ul li a{
+    color: #fff;
+}
+.foot .foot-left .foot-icon i{
+    font-size: 2rem;
+    margin: .3rem .8rem;
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+}
+.foot .foot-left .foot-icon i:hover{
+  color: var(--main-color);
+}
+.foot .foot-left ul li a{
+  font-size: 1.1rem;
+  margin: .6rem .6rem 0rem 0rem ;
+  position: relative;
+}
+.foot .foot-left ul li a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    display: none;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+}
+.foot .foot-left ul li a:hover::after{
+display: block;
+}
+/********************* media query footer *********************/
+@media screen and (max-width:1200px) {
+    .foot .footimg1{
+        top: 25%;
+    }
+    .foot .foot-left{
+        padding: .5rem .3rem;
+        left: 5%;
+    }   
+}
+@media screen and (max-width:978px){
+    .foot .footimg1{
+        top: 37%;
+    }
+    .foot .foot-left .foot-app .left-app, 
+   .foot .foot-left .foot-app .right-app{
+    padding: .4rem;
+   
+}
+.foot .foot-left .foot-app .left-app .app-text span,
+.foot .foot-left .foot-app .right-app .app-text span{
+  font-size: .7rem;
+}
+.foot .foot-left .foot-icon i{
+    font-size: 1.5rem;
+}
+.foot .foot-left ul li a{
+    font-size: .9rem;
+}
+.foot .foot-left .foot-app .left-app .app-text p,
+.foot .foot-left .foot-app .right-app .app-text p{
+    font-size: .9rem;
+}
+.foot .foot-left{
+    padding:.1rem;
+    left: 3%;
+} 
+}
+@media screen and (max-width:799px){
+    .sec2 .sec2-content{
+        height: 80vh;
+    }
+    /* .foot{
+        height: 60vh;
+    } */
+    .foot .foot-left{
+        left: 0;
+        padding: .3rem ;
+    }
+    .foot .footimg1{
+        top: 45%;
+    }
+    .foot .footimg2{
+        right: 9%;
+    }
+    .foot .foot-left .foot-app .left-app img,
+    .foot .foot-left .foot-app .right-app img{
+        width: 20%;
+    }
+    .foot .foot-left .foot-icon i{
+        margin-top: .1rem;
+        margin-bottom: 0rem;
+        font-size: 1.1rem;
+    }
+    .foot .foot-left .foot-app .left-app ,
+    .foot .foot-left .foot-app .right-app  {
+    margin: .1rem;
+    padding: 0;
+    }
+}
+@media screen and (max-width:699px){
+    .foot .footimg1{
+        top: 55%;
+    }
+
+}
+@media screen and (max-width:578px){
+    .foot .footimg1{
+        top: 59%;
+    }
+}
+@media screen and (max-width:528px){
+    .foot .footimg1{
+        top: 62%;
+    }
+}
+@media screen and (max-width:499px){
+    .foot .footimg1{
+        top: 72%;
+    }
+     .foot .foot-left ul{
+        display: none;
+    }
+}
+/************************ end footer *********************************/
